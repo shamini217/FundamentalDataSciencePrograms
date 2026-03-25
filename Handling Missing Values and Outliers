@@ -1,0 +1,57 @@
+# Importing necessary libraries
+import pandas as pd
+import numpy as np
+# Creating a sample dataset with missing and outlier values
+data = {
+'Marks': [85, 90, np.nan, 95, 100, 30, 110, np.nan, 88, 92]
+}
+df = pd.DataFrame(data)
+print("Original Dataset:")
+print(df)
+# Handling Missing Values - Imputation with Mean
+mean_value = df['Marks'].mean()
+df['Marks'].fillna(mean_value, inplace=True)
+print("\nAfter Handling Missing Values (Imputed with Mean):")
+print(df)
+# Handling Outliers - Filtering
+# Assuming valid marks are between 0 and 100
+filtered_df = df[(df['Marks'] >= 0) & (df['Marks'] <= 100)]
+print("\nAfter Removing Outliers:")
+print(filtered_df)
+
+OUTPUT:
+Original Dataset:
+Marks
+0 85.0
+1 90.0
+2 NaN
+3 95.0
+4 100.0
+5 30.0
+6 110.0
+7 NaN
+8 88.0
+9 92.0
+After Handling Missing Values (Imputed with Mean):
+Marks
+0 85.000000
+1 90.000000
+2 86.285714
+3 95.000000
+4 100.000000
+5 30.000000
+6 110.000000
+7 86.285714
+8 88.000000
+9 92.000000
+After Removing Outliers:
+Marks
+0 85.000000
+1 90.000000
+2 86.285714
+3 95.000000
+4 100.000000
+5 30.000000
+7 86.285714
+8 88.000000
+9 92.000000
