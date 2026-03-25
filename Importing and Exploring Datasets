@@ -1,0 +1,46 @@
+# Importing necessary library
+import pandas as pd
+# Loading the dataset (example: students.csv)
+data = pd.read_csv("students.csv")
+# Display first 5 rows of the dataset
+print("First 5 Rows of Dataset:")
+print(data.head())
+# Display the number of rows and columns
+print("\nShape of the Dataset:")
+print(data.shape)
+# Display column names
+print("\nColumn Names:")
+print(data.columns)
+# Display statistical summary of numerical columns
+print("\nStatistical Summary:")
+print(data.describe())
+# Check for missing values
+print("\nMissing Values in Each Column:")
+print(data.isnull().sum())
+
+
+OUTPUT:
+First 5 Rows of Dataset:
+Name Age Marks Grade
+0 Ram 19 85 A
+1 Sita 18 92 A+
+2 Ravi 20 78 B
+3 Rani 19 88 A
+4 John 18 67 C
+Shape of the Dataset:
+(20, 4)
+Column Names:
+Index(['Name', 'Age', 'Marks', 'Grade'], dtype='object')
+Statistical Summary:
+Age Marks
+count 20.000000 20.000000
+mean 18.950000 82.150000
+std 0.911043 9.257367
+min 18.000000 67.000000
+max 20.000000 95.000000
+Missing Values in Each Column:
+Name 0
+Age 0
+Marks 0
+Grade 0
+dtype: int64
